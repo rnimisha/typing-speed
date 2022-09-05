@@ -3,15 +3,14 @@ import FinalResult from './FinalResult'
 import LiveResult from './LiveResult'
 import TextToType from './TextToType'
 
-const sentence = 'hello this is for testing'
-// const sentence = "To learn to type quickly, practice often and adopt the proper technique. Fix your posture, have adequate lighting, position your hands correctly over the keyboard, look at the screen and use all your fingers to hit the keys. At first, concentrate on accuracy over speed. This will help you develop muscle memory and create automatic reflexes. Keep practicing and gradually pick up the pace. You'll see results after just a few weeks!"
+// const sentence = 'hello this is for testing'
+const sentence = "To learn to type quickly, practice often and adopt the proper technique. Fix your posture, have adequate lighting, position your hands correctly over the keyboard, look at the screen and use all your fingers to hit the keys. At first, concentrate on accuracy over speed. This will help you develop muscle memory and create automatic reflexes. Keep practicing and gradually pick up the pace. You'll see results after just a few weeks!"
 const sentenceinputArr = sentence.split('')
 
-const TypingBox = () => {
+const TypingBox = ({showResult, setshowResult, isRestart}) => {
     const [input, setInput] = useState("")
     const [isStarted, setIsStarted] = useState(false)
     const [seconds, setSeconds] = useState(0);
-    const [showResult, setshowResult] = useState(false);
     const [inCorrect, setIncorret] = useState(0);
 
 
@@ -32,6 +31,17 @@ const TypingBox = () => {
             clearInterval(timer)
         }
     }, [isStarted])
+
+    useEffect(()=>{
+
+        if(isRestart === true)
+        {
+            setInput('')
+            setIsStarted(false)
+            setSeconds(0)
+            document.getElementById("text-input").reset();
+        }
+    }, [isRestart])
 
 
     const userInputHandle =(val)=>{
@@ -56,8 +66,10 @@ const TypingBox = () => {
             {!showResult && <>
                 <div className='typing-container'>
                     <TextToType sentenceinputArr={sentenceinputArr} inputArr={inputArr}/>
+                    <form id='text-input'>
                     <textarea placeholder='start typing here.....' onKeyUp={(e)=>{userInputHandle(e.target.value)}}>
-                    </textarea>
+                        </textarea>
+                    </form>
                 </div>
 
                 <div className='result-preview'>
@@ -73,6 +85,7 @@ const TypingBox = () => {
                     <FinalResult data = {inCorrect} label='Mistakes'/>
                 </div>
             }
+            
         </>
     )
 }

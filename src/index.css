@@ -14,6 +14,8 @@ body{
   align-items: center;
   min-height: 100vh;
   background-color: #9ba8b3;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .box-container{
@@ -23,7 +25,6 @@ body{
   border-radius: 20px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-radius: 50px;
   /* background: #e0e0e0; */
   box-shadow: inset 14px 14px 28px #d3d3d3,
@@ -93,7 +94,7 @@ textarea{
   border-radius: 5rem;
   width:10rem;
   height: 10rem;
-  border: 1px solid #525050;
+  border: 2px solid #9a886f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,4 +105,22 @@ textarea{
   text-align: center;
   margin-top: 10px;
   font-size: 1.4rem;
+}
+
+button{
+  width: 190px;
+  padding: 10px 17px;
+  border-radius: 25px;
+  border: 0px;
+  font-size: 1.2rem;
+  background-color: #dfccb2;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+button:hover{
+  background-color: #f3f4f0;
+  box-shadow: 0 -5px -10px #0000001a;
+  color: #9a886f;
+  border : 1px solid #9a886f;
 }
