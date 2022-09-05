@@ -1,9 +1,10 @@
 import React from 'react'
 
-const LiveResult = () => {
+const LiveResult = ({value, unit}) => {
   return (
     <div className='mini-result-box'>
-            20 sec
+           {value}
+           <div>{unit}</div>
     </div>
   )
 }

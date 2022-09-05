@@ -51,6 +51,7 @@ body{
   flex-basis: 50%;
   width: 100%;
   font-size: 3.8rem;
+  flex-direction: column;
 }
 
 .result-preview>.mini-result-box:nth-child(1)
@@ -63,4 +64,8 @@ textarea{
   border-radius: 20px;
   padding: 10px;
   font-size: 1.2rem;
+}
+
+.mini-result-box div{
+  font-size: 1.4rem;
 }
