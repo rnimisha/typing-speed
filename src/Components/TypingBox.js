@@ -3,23 +3,42 @@ import LiveResult from './LiveResult'
 
 const sentence = 'hello this is just for text'
 const sentenceArr = sentence.split('')
-const TypingBox = () => {
 
+const TypingBox = () => {
     const [input, setInput] = useState("")
+    const [isStarted, setIsStarted] = useState(false)
+    const [seconds, setSeconds] = useState(0);
 
     const arr = input.split('')
+  
+    useEffect(()=>{
+        if(isStarted === true)
+        {
+            setInterval(()=>{
+                setSeconds(prev=>prev + 1)
+            }, 1000)
+        }
+    }, [isStarted])
+
+
+    const userInputHandle =(val)=>{
+        setIsStarted(true)
+        setInput(val)
+    }
+
+
     return (
         <>
             <div className='typing-container'>
                 <p>
+                    {seconds}
                     {
                         sentenceArr.map((item, id)=>{
 
                             if(arr.length>id)
                             {
-                              debugger;
                                 return(
-                                    <span key = {id} style={{color : arr[id] === sentenceArr[id] ? '#00ff00' : '#ff0000'}}>
+                                    <span key = {id} style={{backgroundColor : arr[id] === sentenceArr[id] ? '#c7d6cc' : '#e0c8c8', color: '#000'}}>
                                         {item}
                                     </span>
                                 )
@@ -36,7 +55,9 @@ const TypingBox = () => {
                     }
                 </p>
 
-                <textarea placeholder='start typing.....' onKeyUp = {(e)=>{setInput(e.target.value)}}></textarea>
+                <textarea placeholder='start typing.....' onChange={(e)=>{userInputHandle(e.target.value)}}>
+
+                </textarea>
             </div>
 
 
