@@ -1,13 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import TypingBox from './Components/TypingBox'
 
 const App = () => {
 
-  const [showResult, setshowResult] = useState(false);
   return (
     <div className='main-container'>
       <div className='box-container'>
-        {!showResult && <TypingBox setshowResult = {setshowResult}/>}
+         <TypingBox/>
       </div>
     </div>
   )
