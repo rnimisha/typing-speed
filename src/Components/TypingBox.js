@@ -7,18 +7,31 @@ const TypingBox = () => {
 
     const [input, setInput] = useState("")
 
-
+    const arr = input.split('')
     return (
         <>
             <div className='typing-container'>
                 <p>
                     {
                         sentenceArr.map((item, id)=>{
-                           return(
-                            <span key = {id}>
-                                {item}
-                            </span>
-                           )
+
+                            if(arr.length>id)
+                            {
+                              debugger;
+                                return(
+                                    <span key = {id} style={{color : arr[id] === sentenceArr[id] ? '#00ff00' : '#ff0000'}}>
+                                        {item}
+                                    </span>
+                                )
+                            }
+
+                            else{
+                                return(
+                                    <span key = {id} >
+                                        {item}
+                                    </span>
+                                )
+                            }
                         })
                     }
                 </p>
