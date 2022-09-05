@@ -1,15 +1,32 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import LiveResult from './LiveResult'
 
+const sentence = 'hello this is just for text'
+const sentenceArr = sentence.split('')
 const TypingBox = () => {
+
+    const [input, setInput] = useState("")
 
 
     return (
         <>
             <div className='typing-container'>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi itaque sint tempore, facilis asperiores velit. Quasi eligendi officia quod, aliquid qui id unde dolores est itaque esse error optio, exercitationem minus tempore nostrum, mollitia voluptatem! Iusto doloribus enim pariatur illum facere quam. Quibusdam assumenda doloribus facilis tenetur ea neque ut.</p>
-                <textarea placeholder='start typing.....'></textarea>
+                <p>
+                    {
+                        sentenceArr.map((item, id)=>{
+                           return(
+                            <span key = {id}>
+                                {item}
+                            </span>
+                           )
+                        })
+                    }
+                </p>
+
+                <textarea placeholder='start typing.....' onKeyUp = {(e)=>{setInput(e.target.value)}}></textarea>
             </div>
+
+
             <div className='result-preview'>
                 <LiveResult/>
                 <LiveResult/>
