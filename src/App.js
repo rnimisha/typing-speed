@@ -4,7 +4,9 @@ import TypingBox from './Components/TypingBox'
 const App = () => {
   return (
     <div className='main-container'>
-      <TypingBox/>
+      <div className='box-container'>
+        <TypingBox/>
+      </div>
     </div>
   )
 }
