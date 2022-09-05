@@ -124,3 +124,19 @@ button:hover{
   color: #9a886f;
   border : 1px solid #9a886f;
 }
+
+@media only screen and (max-width: 900px) {
+
+  .box-container{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .typing-container{
+    flex-basis: 100%;
+  }
+  
+  .result-preview{
+    flex-basis: 100%;
+  }
+}
