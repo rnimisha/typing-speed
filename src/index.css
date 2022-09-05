@@ -23,12 +23,17 @@ body{
   border-radius: 20px;
   display: flex;
   justify-content: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  /* background: #e0e0e0; */
+  box-shadow: inset 14px 14px 28px #d3d3d3,
+            inset -14px -14px 28px #ededed;
 }
 
 .typing-container{
   border-right: 1px #a7a4a7 solid;
   flex-basis: 80%;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding: 25px;
   text-align: justify;
   display: flex;

@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import LiveResult from './LiveResult'
 
-const sentence = 'hello this is just for text'
+const sentence = 'hello'
+// const sentence = "To learn to type quickly, practice often and adopt the proper technique. Fix your posture, have adequate lighting, position your hands correctly over the keyboard, look at the screen and use all your fingers to hit the keys. At first, concentrate on accuracy over speed. This will help you develop muscle memory and create automatic reflexes. Keep practicing and gradually pick up the pace. You'll see results after just a few weeks!"
 const sentenceinputArr = sentence.split('')
 
-const TypingBox = () => {
+const TypingBox = ({setshowResult}) => {
     const [input, setInput] = useState("")
     const [isStarted, setIsStarted] = useState(false)
     const [seconds, setSeconds] = useState(0);
@@ -30,11 +31,10 @@ const TypingBox = () => {
 
 
     const userInputHandle =(val)=>{
-
-        console.log(inputArr.length, sentenceinputArr.length-1)
-        if(inputArr.length >= sentenceinputArr.length-1)
+        if(inputArr.length+1 >= sentenceinputArr.length)
         {
             setIsStarted(false);
+            setshowResult(true);
             return;
         }
         setIsStarted(true)
@@ -69,7 +69,7 @@ const TypingBox = () => {
                     }
                 </p>
 
-                <textarea placeholder='start typing.....' onChange={(e)=>{userInputHandle(e.target.value)}}>
+                <textarea placeholder='start typing.....' onKeyUp={(e)=>{userInputHandle(e.target.value)}}>
 
                 </textarea>
             </div>
